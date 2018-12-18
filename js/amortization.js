@@ -4,6 +4,8 @@ function amortization(currentBalance, interestRate, termLength) {
     this.termLength = termLength;
     var monthlyPayment,
     totalSavings,
+    actualInterestPaid,
+    defaultInterestPaid,
     paymentSchedule = [];
 
     this.calculateMonthlyPayment = function() {
@@ -16,11 +18,12 @@ function amortization(currentBalance, interestRate, termLength) {
       var paymentPeriods = this.termLength * 12,
         interestPerPeriod = this.interestRate / 12,
         previousDefaultBalance = this.currentBalance,
-        previousActualBalance = this.currentBalance,
-        defaultInterestPaid = 0,
-        actualInterestPaid = 0;
+        previousActualBalance = this.currentBalance;
 
+      defaultInterestPaid = 0,
+      actualInterestPaid = 0;
       paymentSchedule = [];
+
       for (var i = 1; i < paymentPeriods; i++) {
           var payment = {};
 
@@ -72,6 +75,12 @@ function amortization(currentBalance, interestRate, termLength) {
     this.getTotalSavings = function () {
       return Number(totalSavings).toFixed(2);
     };
+    this.getActualInterestPaid = function () {
+      return Number(actualInterestPaid).toFixed(2);
+    };
+    this.getDefaultInterestPaid = function () {
+      return Number(defaultInterestPaid).toFixed(2);
+    }
 
     this.calculateMonthlyPayment();
     this.actualMonthlyPayment = monthlyPayment;
