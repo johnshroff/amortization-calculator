@@ -30,7 +30,7 @@ $("#createPaymentScheduleButton").click(function() {
     actualPayment = $("<h4>", {text: "Actual Monthly Payment: " + amo.actualMonthlyPayment}),
     defaultInterestPaid = $("<h4>", {text: "Default Total Interest: " + amo.getDefaultInterestPaid()}),
     actualInterestPaid = $("<h4>", {text: "Actual Total Interest: " + amo.getActualInterestPaid()}),
-    totalInterestSaved = $("<h4>", {text: "Total Savings: " + amo.getTotalSavings()});
+    totalInterestSaved = $("<h4>", {text: "Total Savings: " + amo.getTotalSavings(), style: "color: red"});
 
   overviewPanel.append(defaultPayment);
   overviewPanel.append(actualPayment);

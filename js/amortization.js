@@ -9,13 +9,13 @@ function amortization(currentBalance, interestRate, termLength) {
     paymentSchedule = [];
 
     this.calculateMonthlyPayment = function() {
-      var paymentPeriods = this.termLength * 12,
+      var paymentPeriods = this.termLength,
         interestPerPeriod = this.interestRate / 12;
       monthlyPayment = currentBalance * ((interestPerPeriod * Math.pow((1 + interestPerPeriod), paymentPeriods)) / (Math.pow((1 + interestPerPeriod), paymentPeriods) -1));
       return monthlyPayment;
     };
     this.calculatePaymentSchedule = function() {
-      var paymentPeriods = this.termLength * 12,
+      var paymentPeriods = this.termLength,
         interestPerPeriod = this.interestRate / 12,
         previousDefaultBalance = this.currentBalance,
         previousActualBalance = this.currentBalance;
